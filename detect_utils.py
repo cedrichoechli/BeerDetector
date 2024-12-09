@@ -2,8 +2,11 @@ import torchvision.transforms as transforms
 import cv2
 import numpy
 import numpy as np
+import os
 from coco_names import COCO_INSTANCE_CATEGORY_NAMES as coco_names
-
+from classify import beer_classification
+import torch
+from PIL import Image
 
 
 
@@ -16,8 +19,15 @@ def predict(image, model, device, confidence_threshold=0.8):
     # transform the image to tensor
     transform = transforms.Compose([transforms.ToTensor(),])
     image = transform(image).to(device)
-    image = image.unsqueeze(0) # add a batch dimension
+    image = image.unsqueeze(0).type(torch.float32) # add a batch dimension
+
+    print(image.dtype)
+    # exit()
+
+
     outputs = model(image) # get the predictions on the image
+
+    print("Detection is completed.")
     # print the results individually
     # print(f"BOXES: {outputs[0]['boxes']}")
     # print(f"LABELS: {outputs[0]['labels']}")
@@ -51,34 +61,72 @@ def predict(image, model, device, confidence_threshold=0.8):
 
 def draw_boxes(boxes, classes, labels, scores, image):
     """
-    Returns the image with bounding boxes including labels and scores
+    Returns the image with bounding boxes including labels, detection scores and classification results
+    Classifications below 60% confidence are labeled as unknown
     """
     COLORS = np.random.uniform(0, 255, size=(len(coco_names), 3))
-    image = cv2.cvtColor(np.asarray(image), cv2.COLOR_BGR2RGB)
+    image_np = cv2.cvtColor(np.asarray(image), cv2.COLOR_BGR2RGB)
+
+    # Create a temporary directory for classification
+    temp_dir = "temp_crops"
+    os.makedirs(temp_dir, exist_ok=True)
+
     for i, box in enumerate(boxes):
         color = COLORS[labels[i]]
-        # draw rectangle with dimensions specified in boxes
+
+        # Crop and save temporarily for classification
+        crop = image.crop(tuple(box))
+        temp_path = f"{temp_dir}/temp_{i}.jpg"
+        crop.save(temp_path)
+
+        # Get classification
+        class_scores, beer_type = beer_classification(temp_path)
+        max_score = float(torch.max(class_scores)) * 100
+
+        # Check confidence threshold
+        if max_score < 60:
+            beer_type = "Unknown"
+
+        # Draw rectangle
         cv2.rectangle(
-            image,
+            image_np,
             (int(box[0]), int(box[1])),
             (int(box[2]), int(box[3])),
             color, 2
         )
-        # put the labels with the predicted scores above the rectangle
-        cv2.putText(image, classes[i] + " : " + str(numpy.round(scores[i], 3) * 100) + "%", (int(box[0]), int(box[1]-5)),
+
+        # Draw detection score
+        detection_text = f"Bottle: {numpy.round(scores[i], 3) * 100}%"
+        cv2.putText(image_np, detection_text, 
+                    (int(box[0]), int(box[1]-25)),
                     cv2.FONT_HERSHEY_SIMPLEX, 0.8, color, 2, 
                     lineType=cv2.LINE_AA)
-    return image
+
+        # Draw classification result
+        class_text = f"{beer_type}: {numpy.round(max_score, 1)}%" if beer_type != "Unknown" else "Unknown"
+        cv2.putText(image_np, class_text, 
+                    (int(box[0]), int(box[1]-5)),
+                    cv2.FONT_HERSHEY_SIMPLEX, 0.8, color, 2, 
+                    lineType=cv2.LINE_AA)
+
+        # Clean up temporary file
+        os.remove(temp_path)
+
+    # Clean up temporary directory
+    os.rmdir(temp_dir)
+    return image_np
 
 
 
 
 def save_cropped_image(image, boxes, directory, filename):
     """
-    Saves cropped image for each bounding box to specified directory
+    Saves cropped image for each bounding box to specified directory and returns paths
     """
-    file_id = 0
-    for box in boxes:
+    saved_paths = []
+    for i, box in enumerate(boxes):
         image_cropped = image.crop(tuple(box))
-        image_cropped.save(f"{directory}/{str(file_id)}-{filename}")
-        file_id += 1
+        save_path = f"{directory}/{i}-{filename}"
+        image_cropped.save(save_path)
+        saved_paths.append(save_path)
+    return saved_paths

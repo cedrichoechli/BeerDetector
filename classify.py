@@ -13,7 +13,7 @@ class ResNet(nn.Module):
     """
     class for custom model, based on pretraind resnet50
     """
-    def __init__(self, model_location='models/resnet50_beer_classification.pth'):
+    def __init__(self, model_location='models/resnet50_beer_classification_40.pth'):
         super(ResNet, self).__init__()
         class_names = BEER_CLASSES
 
@@ -21,7 +21,7 @@ class ResNet(nn.Module):
         self.resnet = torchvision.models.resnet50(pretrained=True)
         num_ftrs = self.resnet.fc.in_features
         self.resnet.fc = nn.Linear(num_ftrs, len(class_names))
-        self.resnet.load_state_dict(torch.load(model_location))
+        self.resnet.load_state_dict(torch.load(model_location, map_location=torch.device('cpu')))
 
         # isolate the feature blocks
         self.features = nn.Sequential(self.resnet.conv1,
@@ -69,16 +69,18 @@ class ResNet(nn.Module):
 
 
 
-def beer_classification(img_location, model_location='models/resnet50_beer_classification.pth'):
+def beer_classification(img_location, model_location='models/resnet50_beer_classification_40.pth'):
     """
     classify beer using custom trained model
     """
+
+    device = torch.device('cpu')
     # get classes
     class_names = BEER_CLASSES
     # init the resnet
     resnet = ResNet(model_location)
     # set the evaluation mode
-    resnet.eval()
+    resnet.eval().to(device)
 
     #open image
     img = Image.open(img_location)
@@ -89,9 +91,13 @@ def beer_classification(img_location, model_location='models/resnet50_beer_class
                              [0.229, 0.224, 0.225])])  # normalize images for R, G, B (both mean and SD)
 
     img = test_transforms(img)
+
+    img = img.to(device)
     # add 1 dimension to tensor
-    img = img.unsqueeze(0)
+    img = img.unsqueeze(0).type(torch.float32)
     # forward pass
+
+    print(img.dtype)
     pred = resnet(img)
 
     # tranfors tensors with results to probabilities

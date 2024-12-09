@@ -20,7 +20,8 @@ def train_beermodel(folder_beers, model_output_location='models/resnet50_beer_cl
     # set parameters
     since = time.time()
     num_ftrs = model_ft.fc.in_features
-    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    device = torch.device("mps" if torch.backends.mps.is_available() else "cpu")
+    print(f"Using device: {device}")  # Added device print
     data_transforms = {
         'train': transforms.Compose([
             transforms.RandomResizedCrop(224),
@@ -38,7 +39,7 @@ def train_beermodel(folder_beers, model_output_location='models/resnet50_beer_cl
 
     # load dataset
     image_datasets = {x: torchvision.datasets.ImageFolder(os.path.join(folder_beers, x), data_transforms[x]) for x in ['train', 'val']}
-    dataloaders = {x: torch.utils.data.DataLoader(image_datasets[x], batch_size=4, shuffle=True, num_workers=4) for x in ['train', 'val']}
+    dataloaders = {x: torch.utils.data.DataLoader(image_datasets[x], batch_size=4, shuffle=True, num_workers=0) for x in ['train', 'val']}
     
     dataset_sizes = {x: len(image_datasets[x]) for x in ['train', 'val']}
     class_names = image_datasets['train'].classes
@@ -75,7 +76,7 @@ def train_beermodel(folder_beers, model_output_location='models/resnet50_beer_cl
 
             # Iterate over data.
             for inputs, labels in dataloaders[phase]:
-                inputs = inputs.to(device)
+                inputs = inputs.to(device, dtype=torch.float32)
                 labels = labels.to(device)
 
                 # zero the parameter gradients
@@ -100,7 +101,7 @@ def train_beermodel(folder_beers, model_output_location='models/resnet50_beer_cl
                 exp_lr_scheduler.step()
 
             epoch_loss = running_loss / dataset_sizes[phase]
-            epoch_acc = running_corrects.double() / dataset_sizes[phase]
+            epoch_acc = running_corrects.float() / dataset_sizes[phase]
 
             print('{} Loss: {:.4f} Acc: {:.4f}'.format(
                 phase, epoch_loss, epoch_acc))
@@ -130,4 +131,4 @@ def train_beermodel(folder_beers, model_output_location='models/resnet50_beer_cl
 
 
 if __name__ == '__main__':
-    train_beermodel(folder_beers='data/detected', num_epochs=20)
+    train_beermodel(folder_beers='data/detected', num_epochs=40)

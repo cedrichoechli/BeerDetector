@@ -4,17 +4,19 @@ import torch
 import argparse
 import cv2
 import detect_utils
+import numpy
+import numpy as np
 from PIL import Image
+from classify import beer_classification
 
 
-
-def detect(image_location, save_cropped_image=False,  output_filename='outputs/test.jpg', show_image=False):
+def detect(image_location, save_cropped_image=False,  output_filename='outputs/test.jpg', show_image=False, save_image=False):
     """
     beer detection on given image
     options to show the image with bounding boxes and crop the content of bounding box to seperate file
     """
     model = torchvision.models.detection.fasterrcnn_resnet50_fpn(pretrained=True)
-    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    device = torch.device('cpu')
     image = Image.open(image_location)
 
     # object detection on image with confidence_threshold
@@ -28,14 +30,17 @@ def detect(image_location, save_cropped_image=False,  output_filename='outputs/t
         filename = os.path.basename(output_filename)
         detect_utils.save_cropped_image(image, boxes, directory, filename)
 
-    if show_image:
-        # draw bounding boxes
+    if show_image or save_image:
+        # draw bounding boxes with detection and classification results
         image = detect_utils.draw_boxes(boxes, classes, labels, scores, image)
 
-        # show image
-        cv2.imshow('Image', image)
-        cv2.waitKey(0)
+        if show_image:
+            cv2.imshow('Image', image)
+            cv2.waitKey(0)
 
+        if save_image:
+            image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+            Image.fromarray(image_rgb).save(str(output_filename))
 
 
 
@@ -45,4 +50,4 @@ if __name__ == '__main__':
     parser.add_argument('-i', '--input', help='path to input image')
     args = vars(parser.parse_args())
 
-    detect(args['input'], save_cropped_image=True, show_image=True)
+    detect(args['input'], save_cropped_image=True, show_image=False, save_image=True)
