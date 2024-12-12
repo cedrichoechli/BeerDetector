@@ -69,7 +69,7 @@ class ResNet(nn.Module):
 
 
 
-def beer_classification(img_location, model_location='models/resnet50_beer_classification_40.pth'):
+def beer_classification(img_location, model_location='models/resnet50_beer_classification_60.pth'):
     """
     classify beer using custom trained model
     """

@@ -1,0 +1,53 @@
+Using device: mps
+Epoch 1/10
+----------
+train Loss: 1.5800 Acc: 0.4264
+val Loss: 1.0917 Acc: 0.6327
+
+Epoch 2/10
+----------
+train Loss: 1.3572 Acc: 0.5415
+val Loss: 1.3883 Acc: 0.6709
+
+Epoch 3/10
+----------
+train Loss: 1.2325 Acc: 0.5860
+val Loss: 0.9629 Acc: 0.7143
+
+Epoch 4/10
+----------
+train Loss: 1.1509 Acc: 0.6176
+val Loss: 1.3135 Acc: 0.6735
+
+Epoch 5/10
+----------
+train Loss: 1.0619 Acc: 0.6358
+val Loss: 1.0486 Acc: 0.6798
+
+Epoch 6/10
+----------
+train Loss: 1.0147 Acc: 0.6632
+val Loss: 0.6506 Acc: 0.8023
+
+Epoch 7/10
+----------
+train Loss: 0.9665 Acc: 0.6850
+val Loss: 0.7717 Acc: 0.7615
+
+Epoch 8/10
+----------
+train Loss: 0.7582 Acc: 0.7497
+val Loss: 0.6441 Acc: 0.7997
+
+Epoch 9/10
+----------
+train Loss: 0.6835 Acc: 0.7736
+val Loss: 0.7218 Acc: 0.7564
+
+Epoch 10/10
+----------
+train Loss: 0.6808 Acc: 0.7756
+val Loss: 0.6569 Acc: 0.7857
+
+Training complete in 6m 21s
+Best val Acc: 0.802296

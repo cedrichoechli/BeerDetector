@@ -1,203 +1,203 @@
 Using device: mps
 Epoch 1/40
 ----------
-train Loss: 1.6479 Acc: 0.4233
-val Loss: 1.4514 Acc: 0.5421
+train Loss: 1.6298 Acc: 0.4295
+val Loss: 1.2767 Acc: 0.6378
 
 Epoch 2/40
 ----------
-train Loss: 1.3427 Acc: 0.5342
-val Loss: 0.9473 Acc: 0.6977
+train Loss: 1.3700 Acc: 0.5306
+val Loss: 1.4154 Acc: 0.6250
 
 Epoch 3/40
 ----------
-train Loss: 1.2610 Acc: 0.5834
-val Loss: 1.2573 Acc: 0.6671
+train Loss: 1.2775 Acc: 0.5699
+val Loss: 1.1628 Acc: 0.6569
 
 Epoch 4/40
 ----------
-train Loss: 1.1102 Acc: 0.6238
-val Loss: 0.7698 Acc: 0.7564
+train Loss: 1.1376 Acc: 0.6249
+val Loss: 1.1357 Acc: 0.7054
 
 Epoch 5/40
 ----------
-train Loss: 1.0121 Acc: 0.6492
-val Loss: 0.7891 Acc: 0.7730
+train Loss: 1.0416 Acc: 0.6570
+val Loss: 0.9788 Acc: 0.7372
 
 Epoch 6/40
 ----------
-train Loss: 0.9496 Acc: 0.6824
-val Loss: 0.7449 Acc: 0.7704
+train Loss: 1.0376 Acc: 0.6492
+val Loss: 0.8843 Acc: 0.7526
 
 Epoch 7/40
 ----------
-train Loss: 0.9165 Acc: 0.6922
-val Loss: 0.9224 Acc: 0.7092
+train Loss: 0.9248 Acc: 0.6808
+val Loss: 0.9804 Acc: 0.7538
 
 Epoch 8/40
 ----------
-train Loss: 0.7507 Acc: 0.7513
-val Loss: 0.7375 Acc: 0.7666
+train Loss: 0.7602 Acc: 0.7466
+val Loss: 0.7897 Acc: 0.7793
 
 Epoch 9/40
 ----------
-train Loss: 0.7354 Acc: 0.7679
-val Loss: 0.6841 Acc: 0.7781
+train Loss: 0.7213 Acc: 0.7560
+val Loss: 0.6718 Acc: 0.7946
 
 Epoch 10/40
 ----------
-train Loss: 0.6747 Acc: 0.7772
-val Loss: 0.7116 Acc: 0.7704
+train Loss: 0.6881 Acc: 0.7674
+val Loss: 0.7231 Acc: 0.7946
 
 Epoch 11/40
 ----------
-train Loss: 0.6737 Acc: 0.7870
-val Loss: 0.6154 Acc: 0.7895
+train Loss: 0.6492 Acc: 0.7984
+val Loss: 0.6939 Acc: 0.7997
 
 Epoch 12/40
 ----------
-train Loss: 0.6842 Acc: 0.7845
-val Loss: 0.6215 Acc: 0.7870
+train Loss: 0.6494 Acc: 0.7813
+val Loss: 0.6985 Acc: 0.7959
 
 Epoch 13/40
 ----------
-train Loss: 0.6443 Acc: 0.7974
-val Loss: 0.6421 Acc: 0.7972
+train Loss: 0.6659 Acc: 0.7767
+val Loss: 0.6781 Acc: 0.7934
 
 Epoch 14/40
 ----------
-train Loss: 0.6067 Acc: 0.8098
-val Loss: 0.6326 Acc: 0.7972
+train Loss: 0.6492 Acc: 0.7927
+val Loss: 0.6167 Acc: 0.8099
 
 Epoch 15/40
 ----------
-train Loss: 0.6109 Acc: 0.7933
-val Loss: 0.6319 Acc: 0.7883
+train Loss: 0.6069 Acc: 0.7979
+val Loss: 0.6163 Acc: 0.8061
 
 Epoch 16/40
 ----------
-train Loss: 0.5728 Acc: 0.8104
-val Loss: 0.6431 Acc: 0.8010
+train Loss: 0.6165 Acc: 0.7902
+val Loss: 0.6268 Acc: 0.8074
 
 Epoch 17/40
 ----------
-train Loss: 0.5773 Acc: 0.8135
-val Loss: 0.6236 Acc: 0.8087
+train Loss: 0.6065 Acc: 0.8036
+val Loss: 0.6399 Acc: 0.8023
 
 Epoch 18/40
 ----------
-train Loss: 0.6117 Acc: 0.8010
-val Loss: 0.5978 Acc: 0.8087
+train Loss: 0.5742 Acc: 0.8130
+val Loss: 0.6793 Acc: 0.7857
 
 Epoch 19/40
 ----------
-train Loss: 0.5515 Acc: 0.8067
-val Loss: 0.6467 Acc: 0.7819
+train Loss: 0.6020 Acc: 0.7979
+val Loss: 0.6385 Acc: 0.7972
 
 Epoch 20/40
 ----------
-train Loss: 0.5735 Acc: 0.8119
-val Loss: 0.6373 Acc: 0.8061
+train Loss: 0.6138 Acc: 0.8062
+val Loss: 0.6428 Acc: 0.8074
 
 Epoch 21/40
 ----------
-train Loss: 0.5884 Acc: 0.8119
-val Loss: 0.6687 Acc: 0.7921
+train Loss: 0.6413 Acc: 0.7917
+val Loss: 0.6356 Acc: 0.8099
 
 Epoch 22/40
 ----------
-train Loss: 0.5934 Acc: 0.8109
-val Loss: 0.6453 Acc: 0.7921
+train Loss: 0.5952 Acc: 0.8104
+val Loss: 0.6302 Acc: 0.7985
 
 Epoch 23/40
 ----------
-train Loss: 0.5894 Acc: 0.8104
-val Loss: 0.6887 Acc: 0.7844
+train Loss: 0.6019 Acc: 0.8093
+val Loss: 0.6268 Acc: 0.8048
 
 Epoch 24/40
 ----------
-train Loss: 0.6163 Acc: 0.7896
-val Loss: 0.6036 Acc: 0.8087
+train Loss: 0.6057 Acc: 0.7964
+val Loss: 0.6484 Acc: 0.8036
 
 Epoch 25/40
 ----------
-train Loss: 0.5873 Acc: 0.8140
-val Loss: 0.6184 Acc: 0.8074
+train Loss: 0.5834 Acc: 0.8124
+val Loss: 0.6010 Acc: 0.8099
 
 Epoch 26/40
 ----------
-train Loss: 0.5836 Acc: 0.8052
-val Loss: 0.6376 Acc: 0.7972
+train Loss: 0.5822 Acc: 0.8145
+val Loss: 0.6131 Acc: 0.8138
 
 Epoch 27/40
 ----------
-train Loss: 0.5849 Acc: 0.8073
-val Loss: 0.6070 Acc: 0.7959
+train Loss: 0.6002 Acc: 0.8104
+val Loss: 0.6197 Acc: 0.8138
 
 Epoch 28/40
 ----------
-train Loss: 0.6143 Acc: 0.8005
-val Loss: 0.6455 Acc: 0.7972
+train Loss: 0.5937 Acc: 0.8026
+val Loss: 0.6545 Acc: 0.8061
 
 Epoch 29/40
 ----------
-train Loss: 0.5843 Acc: 0.8135
-val Loss: 0.6277 Acc: 0.8036
+train Loss: 0.6021 Acc: 0.8073
+val Loss: 0.6497 Acc: 0.8061
 
 Epoch 30/40
 ----------
-train Loss: 0.6001 Acc: 0.8010
-val Loss: 0.6011 Acc: 0.8023
+train Loss: 0.5895 Acc: 0.8078
+val Loss: 0.6567 Acc: 0.7959
 
 Epoch 31/40
 ----------
-train Loss: 0.5836 Acc: 0.8109
-val Loss: 0.5923 Acc: 0.8138
+train Loss: 0.6173 Acc: 0.8098
+val Loss: 0.6506 Acc: 0.8061
 
 Epoch 32/40
 ----------
-train Loss: 0.6049 Acc: 0.7943
-val Loss: 0.6566 Acc: 0.7781
+train Loss: 0.6186 Acc: 0.7907
+val Loss: 0.6429 Acc: 0.8099
 
 Epoch 33/40
 ----------
-train Loss: 0.5754 Acc: 0.8161
-val Loss: 0.5873 Acc: 0.8138
+train Loss: 0.5611 Acc: 0.8238
+val Loss: 0.6451 Acc: 0.7959
 
 Epoch 34/40
 ----------
-train Loss: 0.5668 Acc: 0.8093
-val Loss: 0.6186 Acc: 0.8048
+train Loss: 0.5989 Acc: 0.8041
+val Loss: 0.6654 Acc: 0.8010
 
 Epoch 35/40
 ----------
-train Loss: 0.6045 Acc: 0.8052
-val Loss: 0.6199 Acc: 0.7985
+train Loss: 0.5778 Acc: 0.8135
+val Loss: 0.6818 Acc: 0.7946
 
 Epoch 36/40
 ----------
-train Loss: 0.6461 Acc: 0.7917
-val Loss: 0.6275 Acc: 0.8010
+train Loss: 0.6260 Acc: 0.8021
+val Loss: 0.6776 Acc: 0.7934
 
 Epoch 37/40
 ----------
-train Loss: 0.5780 Acc: 0.8119
-val Loss: 0.6581 Acc: 0.7997
+train Loss: 0.5706 Acc: 0.8238
+val Loss: 0.6222 Acc: 0.8125
 
 Epoch 38/40
 ----------
-train Loss: 0.5894 Acc: 0.8161
-val Loss: 0.6708 Acc: 0.7768
+train Loss: 0.5651 Acc: 0.8202
+val Loss: 0.6528 Acc: 0.8048
 
 Epoch 39/40
 ----------
-train Loss: 0.5982 Acc: 0.8109
-val Loss: 0.6013 Acc: 0.8099
+train Loss: 0.5934 Acc: 0.8031
+val Loss: 0.6194 Acc: 0.8087
 
 Epoch 40/40
 ----------
-train Loss: 0.6108 Acc: 0.8021
-val Loss: 0.6145 Acc: 0.8010
+train Loss: 0.5839 Acc: 0.8073
+val Loss: 0.6062 Acc: 0.8189
 
-Training complete in 26m 39s
-Best val Acc: 0.813776
+Training complete in 25m 52s
+Best val Acc: 0.818878

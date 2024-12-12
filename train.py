@@ -131,4 +131,4 @@ def train_beermodel(folder_beers, model_output_location='models/resnet50_beer_cl
 
 
 if __name__ == '__main__':
-    train_beermodel(folder_beers='data/detected', num_epochs=40)
+    train_beermodel(folder_beers='data/detected', num_epochs=5)

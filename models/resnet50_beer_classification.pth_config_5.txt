@@ -1,0 +1,2 @@
+Number of epochs: 5 
+Trained on these brands: ['amstel', 'corona', 'flensburger', 'heineken', 'paulaner', 'quoellfrisch', 'stiegl']

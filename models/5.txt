@@ -1,0 +1,28 @@
+Using device: mps
+Epoch 1/5
+----------
+train Loss: 1.6259 Acc: 0.4254
+val Loss: 1.0841 Acc: 0.6543
+
+Epoch 2/5
+----------
+train Loss: 1.3650 Acc: 0.5373
+val Loss: 1.1266 Acc: 0.6390
+
+Epoch 3/5
+----------
+train Loss: 1.2241 Acc: 0.5927
+val Loss: 0.7414 Acc: 0.7449
+
+Epoch 4/5
+----------
+train Loss: 1.1647 Acc: 0.6150
+val Loss: 0.8525 Acc: 0.7117
+
+Epoch 5/5
+----------
+train Loss: 1.0110 Acc: 0.6580
+val Loss: 0.9308 Acc: 0.6952
+
+Training complete in 3m 13s
+Best val Acc: 0.744898
