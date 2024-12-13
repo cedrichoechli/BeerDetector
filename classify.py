@@ -3,8 +3,10 @@ import numpy
 import torch
 import torch.nn as nn
 import torchvision
+import time
 from PIL import Image
 from beer_names import BEER_CLASSES
+
 
 
 
@@ -98,7 +100,10 @@ def beer_classification(img_location, model_location='models/resnet50_beer_class
     # forward pass
 
     print(img.dtype)
+    start = time.time()
     pred = resnet(img)
+    end = time.time()
+    print((end - start)*1000)
 
     # tranfors tensors with results to probabilities
     sm = torch.nn.Softmax(dim=1)
