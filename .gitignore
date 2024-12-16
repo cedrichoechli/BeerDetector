@@ -164,3 +164,6 @@ cython_debug/
 wide_resnet50/
 data/
 .DS_Store
+outputs/
+pictures/
+input/
